@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../db";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log(process.env.VERCEL_REGION);
   try {
     const sub = await prisma.subreddit.findUnique({
       where: { name: String(req.query.name) },
